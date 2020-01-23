@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int len(string M) {
+	int counter = 0;
+		while (M[counter]!='\0') {
+			counter++;
+		}
+		return counter;
+}
+int main () {
+setlocale(LC_ALL, "UTF-8");
+srand(time(NULL));
+string M;
+	cout<<"Open message: ";
+	getline(cin, M);
+int length = len(M);
+char *o_M = new char[length];
+char *k = new char[length];
+char *e_M = new char[length];
+char *d_M = new char[length];
+	for (int i=0; i<length; i++)	
+	o_M[i]=M[i];
+for(int i = 0; i < length; i++)
+	k[i]=char(rand()%26+0x61);
+	//k[i]=(char)rand()%255;
+for(int i = 0; i < length; i++)
+	e_M[i]=o_M[i]^k[i];
+for(int i = 0; i < length; i++)
+	d_M[i]=e_M[i]^k[i];
+cout<<"Secret key: "<<k<<endl;
+cout<<"Encrypted message: "<<e_M<<endl;
+cout<<"Decrypted message: "<<d_M<<endl;
+return 0;
+}
