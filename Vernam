@@ -23,7 +23,6 @@ char *d_M = new char[length];
 	o_M[i]=M[i];
 for(int i = 0; i < length; i++)
 	k[i]=char(rand()%26+0x61);
-	//k[i]=(char)rand()%255;
 for(int i = 0; i < length; i++)
 	e_M[i]=o_M[i]^k[i];
 for(int i = 0; i < length; i++)
